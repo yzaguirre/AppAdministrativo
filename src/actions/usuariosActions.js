@@ -1,6 +1,6 @@
 import API from '../utils/api';
-export const obtenerUsuarios = (token) => async (dispatch) => {
-    const usuarios = await API.getUsuarios(token);
+export const obtenerUsuarios = () => async (dispatch) => {
+    const usuarios = await API.getUsuarios();
     if (!usuarios) return false;
     await dispatch({
         type: 'SET_USUARIOS_LIST',

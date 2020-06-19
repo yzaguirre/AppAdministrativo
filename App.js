@@ -11,12 +11,12 @@ import {
 
 
 import {store} from './src/store'
-
+import UsuariosList from "./src/usuarios/containers/usuarios-list";
 
 const App: () => React$Node = () => {
   return (
     <Provider store={store}>
-      <Text>Hola Mundo</Text>
+      <UsuariosList />
     </Provider>
   );
 };
