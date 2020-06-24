@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 
-import {store} from './src/store'
-import UsuariosList from "./src/usuarios/containers/usuarios-list";
+import {store} from './src/store';
+import AppNavigator from "./src/app-navigator";
 
 const App: () => React$Node = () => {
   return (
     <Provider store={store}>
-      <UsuariosList />
+      <AppNavigator />
     </Provider>
   );
 };

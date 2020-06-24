@@ -3,14 +3,19 @@ import {
     Text,
     StyleSheet,
     View,
+    TouchableOpacity,
 } from "react-native";
 function Usuario(props) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>{props.nombre}</Text>
-            <Text style={styles.titulo}>{props.email}</Text>
-            <Text style={styles.titulo}>{props.celular}</Text>
-        </View>
+        <TouchableOpacity
+            onPress={props.onPress}
+        >
+            <View style={styles.container}>
+                <Text style={styles.titulo}>{props.nombre}</Text>
+                <Text style={styles.titulo}>{props.email}</Text>
+                <Text style={styles.titulo}>{props.celular}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 

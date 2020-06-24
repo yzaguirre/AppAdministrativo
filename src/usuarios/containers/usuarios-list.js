@@ -26,7 +26,19 @@ class UsuariosList extends Component {
         });
         console.log("Se obtuvieron datos", this.props.listado_usuarios);
     }
-    renderItem = ({item}) => <Usuario {...item} />;
+    _onPress = async (item) => {
+        await this.props.setUsuario(item);
+        this.props.navigation.navigate('UsuarioDetalle', {
+            params: {
+                navigation: this.props.navigation,
+            }
+        });
+    }
+    renderItem = ({item}) => <Usuario
+        {...item}
+        onPress={() => { this._onPress(item) }}
+    />;
+    keyExtractor = (item) => item.email;
     render(){
         return (
             <Layout
@@ -42,9 +54,9 @@ class UsuariosList extends Component {
                 <FlatList
                     data={this.props.listado_usuarios}
                     renderItem={this.renderItem}
-                    // onPress={() => this._onPress(item)}
+                    onPress={() => this._onPress(item)}
                     // ListEmptyComponent={}
-                    // keyExtractor={}
+                    keyExtractor={this.keyExtractor}
                 />
             </Layout>
         );
