@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import UsuariosList from "./usuarios/containers/usuarios-list";
 import UsuarioDetalle from "./usuarios/containers/usuario-detalle";
 import UsuarioEdicion from "./usuarios/containers/usuario-edicion";
+import UsuarioCrear from "./usuarios/containers/usuario-crear";
 
 // import { createDrawerNavigator } from "@react-navigation/drawer";
 // import Header from './sections/components/header';
@@ -54,14 +55,14 @@ class AppNavigator extends Component {
                     headerShown: false,
                 }}
             />
-            {/* <RootStack.Screen
+            <RootStack.Screen
                 name="UsuarioCrear"
                 component={UsuarioCrear}
                 options={{
                     animationEnabled: false,
                     headerShown: false,
                 }}
-            /> */}
+            />
         </RootStack.Navigator>
     );
     render() {

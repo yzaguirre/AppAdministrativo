@@ -16,5 +16,31 @@ class API {
             throw e;
         }
     }
+    async guardarUsuario(usuario){
+        try {
+            const query = await fetch(`${BASE_API}usuarios/${usuario.usuario_id}`, {
+                method: 'POST',
+                body: JSON.stringify(usuario),
+            });
+            if (query.ok){
+                return true
+            }
+        } catch (e) {
+            throw e;
+        }
+    }
+    async crearUsuario(usuario) {
+        try {
+            const query = await fetch(`${BASE_API}usuarios`, {
+                method: 'POST',
+                body: JSON.stringify(usuario),
+            });
+            if (query.ok) {
+                return true
+            }
+        } catch (e) {
+            throw e;
+        }
+    }
 }
 export default new API();

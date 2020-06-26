@@ -1,19 +1,23 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {
-    StyleSheet,
     View,
     Text,
-    TextInput,
     Button,
-} from "react-native";
+    StyleSheet,
+    TextInput,
+ } from "react-native";
 import { connect } from "react-redux";
+
 import * as usuariosActions from '../../actions/usuariosActions';
-class UsuarioEdicion extends Component {
+
+class UsuarioCrear extends Component {
     constructor(props){
         super(props);
         this.state = {
-            ...this.props.usuario
-        };
+            nombre: '',
+            email: '',
+            celular: '',
+        }
     }
     editarNombre = (nombre) => {
         this.setState({
@@ -31,13 +35,12 @@ class UsuarioEdicion extends Component {
         });
     }
     _guardar = () => {
-        // Llamar al action guardar
-        this.props.guardarUsuario(this.state);
-        // Regresar a la pantalla anterior
+        // enviar formulario
+        this.props.crearUsuario(this.state);
+        // regresar a pagina anterior
         this.props.navigation.goBack();
     }
     render(){
-
         return (
             <View style={styles.principal}>
                 <View>
@@ -69,7 +72,7 @@ class UsuarioEdicion extends Component {
                         title="Cancelar"
                         onPress={() => { this.props.navigation.goBack(); }}
                     />
-                    <Text style={{width: 10,}}></Text>
+                    <Text style={{ width: 10, }}></Text>
                     <Button
                         title="Aceptar"
                         onPress={() => { this._guardar() }}
@@ -78,7 +81,7 @@ class UsuarioEdicion extends Component {
             </View>
         );
     }
-}
+ }
 const styles = StyleSheet.create({
     principal: {
         flex: 1,
@@ -93,9 +96,4 @@ const styles = StyleSheet.create({
         width: 100,
     }
 });
-const mapStateToProps = (reducers) => {
-    return {
-        usuario: reducers.usuariosReducer.selectedUsuario,
-    };
-}
-export default connect(mapStateToProps, usuariosActions)(UsuarioEdicion);
+export default connect(null, usuariosActions)(UsuarioCrear);

@@ -17,11 +17,25 @@ export const setUsuario = (item) => async (dispatch) => {
     })
 };
 
-// export const setUsuario = (nombre) => async (dispatch) => {
-//     await dispatch({
-//         type: 'SET_SELECTED_USUARIO',
-//         payload: {
-//             nombre: nombre,
-//         },
-//     })
-// };
+
+
+export const guardarUsuario = (usuario) => async (dispatch) => {
+    // await API.guardarUsuario(usuario);
+    await dispatch({
+        type: 'SAVE_USUARIO',
+        payload: {
+            usuario,
+        },
+    })
+};
+
+export const crearUsuario = (usuario) => async (dispatch) => {
+    // await API.crearUsuario(usuario);
+    usuario.usuario_id = 10;
+    await dispatch({
+        type: 'CREATE_USUARIO',
+        payload: {
+            usuario,
+        }
+    })
+}

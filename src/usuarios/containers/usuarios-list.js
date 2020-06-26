@@ -4,7 +4,8 @@ import {
     View,
     FlatList,
     Fragment,
-    ActivityIndicator
+    ActivityIndicator,
+    Button
 } from "react-native";
 import { connect } from "react-redux";
 import Layout from "../../sections/containers/layout";
@@ -30,6 +31,9 @@ class UsuariosList extends Component {
         await this.props.setUsuario(item);
         this.props.navigation.navigate('UsuarioDetalle');
     }
+    _crearUsuario = () => {
+        this.props.navigation.navigate('UsuarioCrear');
+    }
     renderItem = ({item}) => <Usuario
         {...item}
         onPress={() => { this._onPress(item) }}
@@ -53,6 +57,12 @@ class UsuariosList extends Component {
                     // ListEmptyComponent={}
                     keyExtractor={this.keyExtractor}
                 />
+                <View>
+                    <Button
+                        title="Crear usuario"
+                        onPress={() => { this._crearUsuario(); }}
+                    />
+                </View>
             </Layout>
         );
     }
