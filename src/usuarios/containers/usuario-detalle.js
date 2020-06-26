@@ -14,6 +14,9 @@ class UsuarioDetalle extends Component {
     constructor(props){
         super(props);
     }
+    _editarUsuario = () => {
+        this.props.navigation.navigate('UsuarioEdicion');
+    };
     render(){
         return (
             <Layout>
@@ -38,7 +41,21 @@ class UsuarioDetalle extends Component {
                         </Text>
                     </View>
                 </View>
-                <Button onPress={() => { this.props.navigation.goBack()}} title="Regresar" />
+                <View
+                    style={styles.botones}
+                >
+                    <Button
+                        style={styles.boton}
+                        onPress={() => { this.props.navigation.goBack() }}
+                        title="Regresar"
+                    />
+                    <Text style={{width: 10,}}></Text>
+                    <Button
+                        style={styles.boton}
+                        title="Editar"
+                        onPress={() => { this._editarUsuario() }}
+                    />
+                </View>
             </Layout>
         );
     }
@@ -66,6 +83,14 @@ const styles = StyleSheet.create({
         color: '#4d81a9',
         fontWeight: 'bold',
     },
+    botones: {
+        // flex: 1,
+        flexDirection: 'row',
+        // justifyContent: 'space-between'
+    },
+    boton: {
+        width: 100,
+    }
 });
 const mapStateToProps = (reducers) => {
     return {

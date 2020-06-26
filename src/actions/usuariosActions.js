@@ -16,3 +16,12 @@ export const setUsuario = (item) => async (dispatch) => {
         },
     })
 };
+
+// export const setUsuario = (nombre) => async (dispatch) => {
+//     await dispatch({
+//         type: 'SET_SELECTED_USUARIO',
+//         payload: {
+//             nombre: nombre,
+//         },
+//     })
+// };
